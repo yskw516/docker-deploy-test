@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .cell {
+                border-style: solid;
+                width: 200px;
+                height: 200px;
+                font-size: 120px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            var counter = 0;
+            
+            function clickMe(a) {
+                if (counter++ % 2 == 0){
+                    a.textContent = "〇";
+                } else {
+                    a.textContent = "×";
+                }
+            }
+
+            function reset() {
+                counter = 0;
+                cells = document.getElementsByClassName("cell");
+
+                for (var i = 0; i < cells.length; i++) {
+                    cells[i].textContent = "";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+                <td class="cell" onclick="clickMe(this)"></td>
+            </tr>
+        </table>
+        <button id="reset" onclick="reset()">reset</button>
+    </body>
+</html>
